@@ -1,0 +1,5 @@
+export * from './endpoints/auth/authApi'
+export * from './endpoints/boutiques/boutiquesApi'
+export * from './endpoints/brands/brandsApi'
+export * from './endpoints/guide/guideApi'
+export * from './endpoints/products/productsApi'
