@@ -1,11 +1,11 @@
-import auroraClassic from '../../../assets/images/watches/aurora-classic.svg'
-import deepSea from '../../../assets/images/watches/deep-sea.svg'
-import diamondArc from '../../../assets/images/watches/diamond-arc.svg'
-import fieldHeritage from '../../../assets/images/watches/field-heritage.svg'
-import pilotAmber from '../../../assets/images/watches/pilot-amber.svg'
-import roseMoon from '../../../assets/images/watches/rose-moon.svg'
-import skeletonNoir from '../../../assets/images/watches/skeleton-noir.svg'
-import steelChrono from '../../../assets/images/watches/steel-chrono.svg'
+import auroraClassic from '../../../assets/images/watches/Aquis Date Deep Blue.webp'
+import deepSea from '../../../assets/images/watches/DolceVita Diamond Arc.webp'
+import diamondArc from '../../../assets/images/watches/iwcIngenieurLarge.webp'
+import fieldHeritage from '../../../assets/images/watches/iwc-pilots-watches-iw388120-large.webp'
+import pilotAmber from '../../../assets/images/watches/iwc-portofino-iw356527-large.avif'
+import roseMoon from '../../../assets/images/watches/iwc-portofino-iw459806-large.webp'
+import skeletonNoir from '../../../assets/images/watches/iwc-portuguese-iw503302-large.webp'
+import steelChrono from '../../../assets/images/watches/jacobcoEpic43AbruaLarge.webp'
 
 const watchImages = {
   auroraClassic,

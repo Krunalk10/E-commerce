@@ -1,6 +1,6 @@
 import { ArrowRight, BadgeCheck, ShieldCheck, Sparkles, Truck } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import heroImage from '../../../assets/images/hero/watch-atelier.svg'
+import heroImage from '../../../assets/images/hero/patek-hero-image.webp'
 import conciergeImage from '../../../assets/images/banners/concierge-desk.svg'
 import { LoadingGrid } from '../../../components/feedback/LoadingGrid'
 import { ProductGrid } from '../../../components/product/ProductGrid'
