@@ -1,7 +1,7 @@
 import { ArrowRight, BadgeCheck, ShieldCheck, Sparkles, Truck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import heroImage from '../../../assets/images/hero/patek-hero-image.webp'
-import conciergeImage from '../../../assets/images/banners/concierge-desk.svg'
+import conciergeImage from '../../../assets/images/banners/RM24.webp'
 import { LoadingGrid } from '../../../components/feedback/LoadingGrid'
 import { ProductGrid } from '../../../components/product/ProductGrid'
 import { Container } from '../../../components/ui/Container'
@@ -111,7 +111,7 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section className="page-section">
+      {/* <section className="page-section">
         <Container>
           <SectionHeader
             eyebrow="Watch guide"
@@ -129,7 +129,7 @@ export function HomePage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
     </main>
   )
 }

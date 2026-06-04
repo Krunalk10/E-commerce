@@ -14,6 +14,7 @@ export function ProductCard({ product }) {
   const isCompareSelected = useCompareStore((state) =>
     state.items.some((item) => item.id === product.id),
   )
+ 
 
   return (
     <article className="product-card">

@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => ({
     const response = await getCurrentUser()
     set({
       isAuthenticated: Boolean(response.data),
-      isLoading: false,
+      isLoading: false, 
       user: response.data,
     })
   },

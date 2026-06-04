@@ -1,5 +1,5 @@
 :root {
-  --bg: #f8f4ed;
+  /* --bg: white; */
   --bg-strong: #ffffff;
   --ink: #151515;
   --muted: #6f6960;
@@ -118,7 +118,7 @@ select:focus-visible {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid rgba(228, 216, 199, 0.85);
-  background: rgba(248, 244, 237, 0.94);
+  background: white;
   backdrop-filter: blur(16px);
 }
 
@@ -146,7 +146,7 @@ select:focus-visible {
 
 .brand {
   gap: 10px;
-  color: var(--ink);
+  color: palegoldenrod;
   font-weight: 800;
   text-decoration: none;
 }
@@ -219,7 +219,7 @@ select:focus-visible {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   color: var(--ink);
-  background: #fffaf3;
+  background: #ffff;
   text-decoration: none;
 }
 
@@ -249,7 +249,7 @@ select:focus-visible {
   height: 42px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
 }
 
 .button {
@@ -285,7 +285,7 @@ select:focus-visible {
 .button--secondary {
   color: var(--ink);
   border-color: var(--line);
-  background: #fffaf3;
+  background: white;
 }
 
 .button--ghost {
@@ -299,7 +299,7 @@ select:focus-visible {
   padding: 0;
   color: var(--ink);
   border-color: var(--line);
-  background: #fffaf3;
+  background: white;
 }
 
 .button--icon span {
@@ -453,7 +453,7 @@ select:focus-visible {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
   box-shadow: 0 12px 36px rgba(47, 36, 24, 0.08);
   transition:
     transform 220ms ease,
@@ -469,7 +469,7 @@ select:focus-visible {
   position: relative;
   display: block;
   padding: 18px;
-  background: linear-gradient(135deg, #efe1cd, #fffaf3);
+  background: white;
 }
 
 .product-card__media img {
@@ -495,13 +495,14 @@ select:focus-visible {
   display: grid;
   gap: 12px;
   padding: 18px;
+  background:white
 }
 
 .product-card__meta,
 .product-card__rating {
   justify-content: space-between;
   gap: 12px;
-  color: var(--muted);
+  color: var(--bg);
   font-size: 0.84rem;
   text-transform: capitalize;
 }
@@ -572,7 +573,7 @@ select:focus-visible {
 .auth-card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
   box-shadow: 0 12px 36px rgba(47, 36, 24, 0.06);
 }
 
@@ -647,7 +648,7 @@ select:focus-visible {
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
 }
 
 .filter-panel__header {
@@ -712,7 +713,7 @@ select:focus-visible {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 0 12px;
-  background: #fffaf3;
+  background: white;
 }
 
 .pagination {
@@ -738,7 +739,7 @@ select:focus-visible {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   cursor: pointer;
-  background: #fffaf3;
+  background: white;
 }
 
 .pagination__pages button {
@@ -769,7 +770,7 @@ select:focus-visible {
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(135deg, #fffaf3, #ede0cc);
+  background: linear-gradient(135deg, white, #ede0cc);
   box-shadow: var(--shadow);
 }
 
@@ -953,7 +954,7 @@ dd {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
 }
 
 .cart-item img {
@@ -1011,7 +1012,7 @@ dd {
 
 .empty-state svg,
 .checkout-card > svg {
-  color: var(--gold-strong);
+  color: white
 }
 
 .brand-page-grid {
@@ -1045,7 +1046,7 @@ dd {
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fffaf3;
+  background: white;
 }
 
 .compare-table article > button {
@@ -1089,7 +1090,7 @@ dd {
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #eadfcd, #fffaf3, #eadfcd);
+  background: linear-gradient(90deg, #eadfcd, white, #eadfcd);
   background-size: 200% 100%;
   animation: skeletonPulse 1.2s ease-in-out infinite;
 }
@@ -1159,7 +1160,7 @@ dd {
     align-items: stretch;
     border-bottom: 1px solid var(--line);
     padding: 16px 20px;
-    background: #fffaf3;
+    background: white;
   }
 
   .site-nav.is-open {
