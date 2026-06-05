@@ -21,7 +21,7 @@ const navItems = [
   { label: 'Brands', to: '/brands' },
   { label: 'Finder', to: '/watch-finder' },
   { label: 'Guide', to: '/guide' },
-  { label: 'Boutiques', to: '/boutiques' },
+  // { label: 'Boutiques', to: '/boutiques' },
 ]
 
 export function Header() {
@@ -86,13 +86,13 @@ export function Header() {
             {compareCount ? <span>{compareCount}</span> : null}
           </Link>
           <Link aria-label="Wishlist" className="header-icon" to="/wishlist">
-            <Heart aria-hidden="true" />
-            {wishlistCount ? <span>{wishlistCount}</span> : null}
-          </Link>
+  <Heart aria-hidden="true" />
+  {user && wishlistCount > 0 ? <span>{wishlistCount}</span> : null}
+</Link>
           <Link aria-label="Cart" className="header-icon" to="/cart">
-            <ShoppingBag aria-hidden="true" />
-            {cartCount ? <span>{cartCount}</span> : null}
-          </Link>
+  <ShoppingBag aria-hidden="true" />
+  {user && cartCount > 0 ? <span>{cartCount}</span> : null}
+</Link>
           <Button
             icon={UserRound}
             onClick={() => navigate(user ? '/profile' : '/login')}

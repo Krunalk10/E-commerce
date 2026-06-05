@@ -1,12 +1,15 @@
 import { GitCompare, Heart, ShoppingBag } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../ui/Button'
 import { formatCurrency } from '../../lib/formatters/currency'
+import { useAuthStore } from '../../store/slices/useAuthStore'
 import { useCartStore } from '../../store/slices/useCartStore'
 import { useCompareStore } from '../../store/slices/useCompareStore'
 import { useWishlistStore } from '../../store/slices/useWishlistStore'
 
 export function ProductCard({ product }) {
+  const navigate = useNavigate()
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
   const addItem = useCartStore((state) => state.addItem)
   const toggleWishlist = useWishlistStore((state) => state.toggleItem)
   const isWishlisted = useWishlistStore((state) => state.isWishlisted(product.id))
@@ -14,7 +17,16 @@ export function ProductCard({ product }) {
   const isCompareSelected = useCompareStore((state) =>
     state.items.some((item) => item.id === product.id),
   )
+
+  const handleAddToCart = () => {
+    if (!isAuthenticated) {
+      navigate('/login')
+      return
+    }
+    addItem(product)
+  }
  
+  
 
   return (
     <article className="product-card">
@@ -48,7 +60,7 @@ export function ProductCard({ product }) {
           <Button
             disabled={!product.inStock}
             icon={ShoppingBag}
-            onClick={() => addItem(product)}
+            onClick={handleAddToCart}
             variant="primary"
           >
             {product.inStock ? 'Add' : 'Sold'}
