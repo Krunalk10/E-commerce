@@ -8,25 +8,39 @@ export function useHomeData() {
     featured: [],
   })
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     let isActive = true
 
     async function loadHomeData() {
       setIsLoading(true)
-      const [featured, brands, articles] = await Promise.all([
-        getFeaturedProducts(8),
-        getBrands(),
-        getArticles(),
-      ])
+      setError('')
 
-      if (isActive) {
-        setData({
-          articles: articles.data,
-          brands: brands.data,
-          featured: featured.data,
-        })
-        setIsLoading(false)
+      try {
+        const [featured, brands, articles] = await Promise.all([
+          getFeaturedProducts(8),
+          getBrands(),
+          getArticles(),
+        ])
+
+        if (isActive) {
+          setData({
+            articles: articles.data,
+            brands: brands.data,
+            featured: featured.data,
+          })
+        }
+      } catch (error) {
+        console.error(error)
+
+        if (isActive) {
+          setError(error.message || 'Unable to load home content.')
+        }
+      } finally {
+        if (isActive) {
+          setIsLoading(false)
+        }
       }
     }
 
@@ -37,5 +51,5 @@ export function useHomeData() {
     }
   }, [])
 
-  return { ...data, isLoading }
+  return { ...data, isLoading, error }
 }

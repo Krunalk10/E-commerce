@@ -7,13 +7,24 @@ export const useAuthStore = create((set) => ({
   isLoading: false,
   user: null,
   bootstrap: async () => {
-    set({ isLoading: true })
-    const response = await getCurrentUser()
-    set({
-      isAuthenticated: Boolean(response.data),
-      isLoading: false, 
-      user: response.data,
-    })
+    set({ isLoading: true, error: '' })
+
+    try {
+      const response = await getCurrentUser()
+      set({
+        isAuthenticated: Boolean(response.data),
+        isLoading: false,
+        user: response.data,
+      })
+    } catch (error) {
+      console.error(error)
+      set({
+        error: error.message || 'Unable to restore session.',
+        isAuthenticated: false,
+        isLoading: false,
+        user: null,
+      })
+    }
   },
   clearError: () => set({ error: '' }),
   login: async (payload) => {

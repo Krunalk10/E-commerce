@@ -5,15 +5,32 @@ import { Container } from '../../components/ui/Container'
 
 export function BoutiquesPage() {
   const [boutiques, setBoutiques] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     let isActive = true
 
     async function loadBoutiques() {
-      const response = await getBoutiques()
+      setIsLoading(true)
+      setError('')
 
-      if (isActive) {
-        setBoutiques(response.data)
+      try {
+        const response = await getBoutiques()
+
+        if (isActive) {
+          setBoutiques(response.data)
+        }
+      } catch (error) {
+        console.error(error)
+
+        if (isActive) {
+          setError(error.message || 'Unable to load boutiques.')
+        }
+      } finally {
+        if (isActive) {
+          setIsLoading(false)
+        }
       }
     }
 
@@ -23,6 +40,26 @@ export function BoutiquesPage() {
       isActive = false
     }
   }, [])
+
+  if (isLoading) {
+    return (
+      <main className="page-section">
+        <Container>
+          <p>Loading boutiques…</p>
+        </Container>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="page-section">
+        <Container>
+          <p className="form-error">{error}</p>
+        </Container>
+      </main>
+    )
+  }
 
   return (
     <main className="page-section">

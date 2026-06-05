@@ -8,15 +8,27 @@ export function useCatalogProducts() {
   const [isLoading, setIsLoading] = useState(true)
   const [meta, setMeta] = useState({ page: 1, pageSize, total: 0, totalPages: 1 })
   const [products, setProducts] = useState([])
+  const [error, setError] = useState('')
 
   useEffect(() => {
     let isActive = true
 
     async function loadFilters() {
-      const response = await getProductFilters()
+      setError('')
 
-      if (isActive) {
-        setFilterOptions(response.data)
+      try {
+        const response = await getProductFilters()
+
+        if (isActive) {
+          setFilterOptions(response.data)
+        }
+      } catch (error) {
+        console.error(error)
+
+        if (isActive) {
+          setError(error.message || 'Unable to load filter options.')
+          setFilterOptions(null)
+        }
       }
     }
 
@@ -32,12 +44,27 @@ export function useCatalogProducts() {
 
     async function loadProducts() {
       setIsLoading(true)
-      const response = await getProducts({ filters, page, pageSize, sort })
+      setError('')
 
-      if (isActive) {
-        setProducts(response.data)
-        setMeta(response.meta)
-        setIsLoading(false)
+      try {
+        const response = await getProducts({ filters, page, pageSize, sort })
+
+        if (isActive) {
+          setProducts(response.data)
+          setMeta(response.meta)
+        }
+      } catch (error) {
+        console.error(error)
+
+        if (isActive) {
+          setError(error.message || 'Unable to load products.')
+          setProducts([])
+          setMeta({ page: 1, pageSize, total: 0, totalPages: 1 })
+        }
+      } finally {
+        if (isActive) {
+          setIsLoading(false)
+        }
       }
     }
 
@@ -53,5 +80,6 @@ export function useCatalogProducts() {
     isLoading,
     meta,
     products,
+    error,
   }
 }

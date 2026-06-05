@@ -4,15 +4,32 @@ import { Container } from '../../components/ui/Container'
 
 export function GuidePage() {
   const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     let isActive = true
 
     async function loadArticles() {
-      const response = await getArticles()
+      setIsLoading(true)
+      setError('')
 
-      if (isActive) {
-        setArticles(response.data)
+      try {
+        const response = await getArticles()
+
+        if (isActive) {
+          setArticles(response.data)
+        }
+      } catch (error) {
+        console.error(error)
+
+        if (isActive) {
+          setError(error.message || 'Unable to load guide articles.')
+        }
+      } finally {
+        if (isActive) {
+          setIsLoading(false)
+        }
       }
     }
 
@@ -22,6 +39,26 @@ export function GuidePage() {
       isActive = false
     }
   }, [])
+
+  if (isLoading) {
+    return (
+      <main className="page-section">
+        <Container>
+          <p>Loading guides…</p>
+        </Container>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="page-section">
+        <Container>
+          <p className="form-error">{error}</p>
+        </Container>
+      </main>
+    )
+  }
 
   return (
     <main className="page-section">

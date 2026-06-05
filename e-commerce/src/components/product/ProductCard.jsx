@@ -46,10 +46,10 @@ export function ProductCard({ product }) {
         </Link>
         <p>{product.shortDescription}</p>
 
-        <div className="product-card__rating">
+        {/* <div className="product-card__rating">
           <span>{product.rating}</span>
           <span>{product.reviews} reviews</span>
-        </div>
+        </div> */}
 
         <div className="product-card__price">
           <strong>{formatCurrency(product.price)}</strong>
@@ -74,7 +74,7 @@ export function ProductCard({ product }) {
           >
             Wish
           </Button>
-          <Button
+          {/* <Button
             aria-label={isCompareSelected ? 'Remove from compare' : 'Compare watch'}
             className={isCompareSelected ? 'is-active' : ''}
             icon={GitCompare}
@@ -82,7 +82,7 @@ export function ProductCard({ product }) {
             variant="icon"
           >
             Compare
-          </Button>
+          </Button> */}
         </div>
       </div>
     </article>
