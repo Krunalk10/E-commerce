@@ -81,10 +81,10 @@ export function Header() {
         </form>
 
         <div className="header-actions">
-          <Link aria-label="Compare watches" className="header-icon" to="/compare">
+          {/* <Link aria-label="Compare watches" className="header-icon" to="/compare">
             <GitCompare aria-hidden="true" />
             {compareCount ? <span>{compareCount}</span> : null}
-          </Link>
+          </Link> */}
           <Link aria-label="Wishlist" className="header-icon" to="/wishlist">
   <Heart aria-hidden="true" />
   {user && wishlistCount > 0 ? <span>{wishlistCount}</span> : null}

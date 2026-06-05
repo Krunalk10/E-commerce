@@ -5,7 +5,7 @@ import { BrandsPage } from '../../pages/brands/BrandsPage'
 import { CartPage } from '../../pages/cart/CartPage'
 import { CatalogPage } from '../../pages/catalog/CatalogPage'
 import { CheckoutPage } from '../../pages/checkout/CheckoutPage'
-import { ComparePage } from '../../pages/compare/ComparePage'
+// import { ComparePage } from '../../pages/compare/ComparePage'
 import { GuidePage } from '../../pages/guide/GuidePage'
 import { HomePage } from '../../pages/home/HomePage'
 import { ProductDetailPage } from '../../pages/product-detail/ProductDetailPage'
@@ -29,7 +29,7 @@ export function AppRouter() {
           <Route element={<GuidePage />} path="guide" />
           <Route element={<BoutiquesPage />} path="boutiques" />
           <Route element={<WishlistPage />} path="wishlist" />
-          <Route element={<ComparePage />} path="compare" />
+          {/* <Route element={<ComparePage />} path="compare" /> */}
           <Route element={<CartPage />} path="cart" />
           <Route element={<CheckoutPage />} path="checkout" />
           <Route element={<ProfilePage />} path="profile" />
